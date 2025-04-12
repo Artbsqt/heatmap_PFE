@@ -3,10 +3,18 @@ import os
 from geopy.geocoder import Nominatim
 import folium
 from folium.plugins import HeatMap
+from pathlib import Path
+
+
 
 # Config
 NOTION_TOKEN = os.getenv("NOTION_TOKEN")
 DATABASE_ID = os.getenv("DATABASE_ID")
+
+
+# Créer le dossier "docs" si inexistant
+Path("docs").mkdir(exist_ok=True)
+
 
 # Récupération des données depuis Notion
 headers = {
@@ -44,3 +52,5 @@ for entry in data:
 m = folium.Map(location=[47.4784, -0.5632], zoom_start=13)
 HeatMap(coordinates, radius=15).add_to(m)
 m.save("docs/index.html")  # Dossier pour GitHub Pages
+
+m.save("docs/index.html") 
