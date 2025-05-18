@@ -1,6 +1,6 @@
 import requests
 import os
-from geopy.geocoder import Nominatim
+from geopy.geocoders import Nominatim
 import folium
 from folium.plugins import HeatMap
 
